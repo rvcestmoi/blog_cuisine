@@ -1,0 +1,25 @@
+{% extends "blog_cuisineBackBundle:Admin:adminfooter.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+    Bienvenue sur les rubriques
+
+    <div class="container">
+        <div class="nouveauTheme"> <a href="{{path('admin_theme_nouveau')}}">Nouvelle rubrique</a></div>
+        <div class="row">
+            <div class ="themeListe">
+                
+                <ul>
+                    <strong>Rubriques disponibles :<br><br></strong>
+                {% for theme in themes %}
+                    <li>{{theme.libelle}}<a href="{{path('admin_theme_modifier', {'id':theme.id})}}">    Modifier    </a><a href="{{path('admin_theme_supprimer', {'id':theme.id})}}">   Supprimer   </a></li>
+                {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}

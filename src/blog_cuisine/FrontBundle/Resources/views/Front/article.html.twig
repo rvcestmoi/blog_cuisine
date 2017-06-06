@@ -1,0 +1,27 @@
+{% extends "blog_cuisineFrontBundle:FrontGeneral:navigation.html.twig" %}
+
+{% block title %}Recette{% endblock %}
+
+{% block main %}
+    {{parent()}}
+
+    <div class="container">
+        <br><br><br>
+        {% autoescape false %}
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:120px"/>
+                </div>
+                <div class="col-md-8">
+                    <h2>{{article.titre}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                {{article.description}}
+            </div>
+        {% endautoescape %}
+    <div class="retourPage">
+    <a href="#haut">retour en haut de la page</a>
+    </div></div>
+
+{% endblock %}

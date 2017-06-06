@@ -1,0 +1,25 @@
+{% extends "blog_cuisineBackBundle:Admin:adminfooter.html.twig" %}
+
+{% block body %}
+     {{ parent() }}
+    bienvenue sur les ingrédients
+
+    <div class="container">
+        <div class="nouveauTheme"> <a href="{{path('admin_ingredient_nouveau')}}">Nouvel ingrédient</a></div>
+        <div class="row">
+            <div class ="themeListe">
+                
+                <ul>
+                    <strong>Ingrédients disponibles :<br><br></strong>
+                {% for ingredient in ingredients %}
+                    <li>{{ingredient.libelle}}<a href="{{path('admin_ingredient_modifier', {'id':ingredient.id})}}">    Modifier    </a><a href="{{path('admin_ingredient_supprimer', {'id':ingredient.id})}}">   Supprimer   </a></li>
+                {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}

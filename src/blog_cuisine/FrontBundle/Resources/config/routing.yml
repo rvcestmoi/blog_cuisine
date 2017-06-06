@@ -1,0 +1,24 @@
+home_page:
+    path:     /
+    defaults: { _controller: blog_cuisineFrontBundle:Front:homePage }
+
+recherche:
+    path:     /recherche/{recherche}
+    defaults: { _controller: blog_cuisineFrontBundle:Front:recherche, recherche:"test" }
+    
+
+theme:
+    path:     /theme/{id}
+    defaults: { _controller: blog_cuisineFrontBundle:Front:afficherTheme }
+    methods: [GET]
+    
+article:
+    path:     /article/{id}
+    defaults: { _controller: blog_cuisineFrontBundle:Front:afficherArticle }
+    
+contact:
+    path:     /contact
+    defaults: { _controller: blog_cuisineFrontBundle:Front:contact }
+        
+    
+    

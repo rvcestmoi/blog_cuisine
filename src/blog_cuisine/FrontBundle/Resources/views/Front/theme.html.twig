@@ -1,0 +1,25 @@
+{% extends "blog_cuisineFrontBundle:FrontGeneral:navigation.html.twig" %}
+
+
+
+{% block main %}
+    {{parent()}}
+
+    <div class="container">
+
+        <br>
+        <h1>Recettes trouvées :</h1>
+        {% for article in articles %}
+            <a href="{{path('article', {id:article.id}  )}}">
+                <div class="recherche">
+
+                    <p> <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " height="40px"/>
+                        {{article.titre}}
+                    </p>
+                </div>
+            </a>
+        {% endfor%}
+    </div>
+    <a href="#haut">retour en haut de la page</a>
+
+{% endblock %}

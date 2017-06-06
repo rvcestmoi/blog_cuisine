@@ -1,0 +1,28 @@
+{% extends "blog_cuisineBackBundle:Admin:adminfooter.html.twig" %}
+{#{% set truc="test.png" %}#}
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <div class="row">
+            <a href="{{path('admin_recette')}}"><div class="adminBouton col-md-5">
+                Recettes    
+            </div></a>
+            <a href="{{path('admin_article')}}"><div class="adminBouton col-md-5">
+                Articles    
+                </div></a>
+                {#<img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{truc}} " height="60px"/>#}
+
+        </div>
+        <div class="row">
+            <a href="{{path('admin_theme')}}"><div class="adminBouton col-md-5">
+               Rubriques  
+                </div></a>
+             <a href="{{path('admin_ingredient')}}"><div class="adminBouton col-md-5">
+                Ingredients  
+                 </div></a>
+
+        </div>
+
+
+    </div>
+{% endblock %}

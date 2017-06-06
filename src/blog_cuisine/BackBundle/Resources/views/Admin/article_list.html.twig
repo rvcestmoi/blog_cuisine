@@ -1,0 +1,29 @@
+{% extends "blog_cuisineBackBundle:Admin:adminfooter.html.twig" %}
+
+{% block body %}
+     {{ parent() }}
+    bienvenue sur les articles
+
+    <div class="container">
+        <div class="nouveauTheme"> <a href="{{path('admin_article_nouveau')}}">Nouvel Article</a></div>
+        <div class="row">
+            <div class ="themeListe">
+                
+                <ul>
+                    <strong>Articles disponibles :<br><br></strong>
+                {% for article in articles %}
+                 {% if article.enLigne  %}
+                    <li class="themeListe" style="background-color: greenyellow">{{article.titre}}<a href="{{path('admin_article_modifier', {'id':article.id})}}">    Modifier    </a><a href="{{path('admin_article_supprimer', {'id':article.id})}}">   Supprimer   </a></li>
+                {% else %}
+                <li class="themeListe "style="background-color:  #f78a8a">{{article.titre}}<a href="{{path('admin_article_modifier', {'id':article.id})}}">    Modifier    </a><a href="{{path('admin_article_supprimer', {'id':article.id})}}">   Supprimer   </a></li>
+                {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}

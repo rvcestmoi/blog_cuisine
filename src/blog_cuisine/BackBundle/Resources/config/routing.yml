@@ -1,0 +1,84 @@
+index:
+    path:     /
+    defaults: { _controller: blog_cuisineBackBundle:Admin:index }
+
+admin_ingredient:
+    path:     /ingredient
+    defaults: { _controller: blog_cuisineBackBundle:AdminIngredient:listeringredient }
+    
+admin_ingredient_nouveau:
+    path:     /ingredient/nouveau
+    defaults: { _controller: blog_cuisineBackBundle:AdminIngredient:nouveauingredient }
+
+admin_ingredient_supprimer:
+    path:     /ingredient/supprimer/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminIngredient:supprimeringredient }
+
+admin_ingredient_liste_supprimer:
+    path:     /ingredient/supprimer/{id}/{recette}
+    defaults: { _controller: blog_cuisineBackBundle:AdminRecette:supprimerIngredientListe }
+
+admin_ingredient_modifier:
+    path:     /ingredient/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminIngredient:modifieringredient }
+    
+
+
+admin_theme:
+    path:     /theme
+    defaults: { _controller: blog_cuisineBackBundle:Admin:listerTheme }
+    
+admin_theme_nouveau:
+    path:     /theme/nouveau
+    defaults: { _controller: blog_cuisineBackBundle:Admin:nouveauTheme }
+
+admin_theme_supprimer:
+    path:     /theme/supprimer/{id}
+    defaults: { _controller: blog_cuisineBackBundle:Admin:supprimerTheme }
+
+admin_theme_modifier:
+    path:     /theme/{id}
+    defaults: { _controller: blog_cuisineBackBundle:Admin:modifierTheme }
+ 
+
+
+admin_recette:
+    path:     /recette
+    defaults: { _controller: blog_cuisineBackBundle:AdminRecette:ListerRecette }
+
+admin_recette_nouveau:
+    path:     /recette/nouveau
+    defaults: { _controller: blog_cuisineBackBundle:AdminRecette:nouveauRecette }    
+
+admin_recette_ajouter:
+    path:     /recette/ajouter/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminRecette:ajouterRecette }
+
+admin_recette_modifier:
+    path:     /recette/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminRecette:modifierRecette }
+    
+admin_recette_supprimer:
+    path:     /recette/supprimer/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminRecette:supprimerRecette }   
+
+admin_article:
+    path:     /article
+    defaults: { _controller: blog_cuisineBackBundle:AdminArticle:lister }
+
+admin_article_nouveau:
+    path:     /article/nouveau
+    defaults: { _controller: blog_cuisineBackBundle:AdminArticle:nouveauArticle }
+
+admin_article_ajouterImage:
+    path:     /article/imageAjouter/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminArticle:ajouterImageArticle }    
+
+admin_article_supprimer:
+    path:     /article/supprimer/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminArticle:supprimerArticle }     
+    
+admin_article_modifier:
+    path:     /article/{id}
+    defaults: { _controller: blog_cuisineBackBundle:AdminArticle:modifierArticle }    
+    

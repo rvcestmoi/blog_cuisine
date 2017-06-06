@@ -1,0 +1,25 @@
+{% extends "blog_cuisineBackBundle:Admin:adminfooter.html.twig" %}
+
+{% block body %}
+     {{ parent() }}
+    bienvenue sur les recettes
+
+    <div class="container">
+        <div class="nouveauTheme"> <a href="{{path('admin_recette_nouveau')}}">Nouvelle recette</a></div>
+        <div class="row">
+            <div class ="themeListe">
+                
+                <ul>
+                    <strong>Recettes disponibles :<br><br></strong>
+                {% for recette in recettes %}
+                <li> {% autoescape false %}{{recette.titre }}{% endautoescape %}<a href="{{path('admin_recette_ajouter', {'id':recette.id})}}">    Modifier    </a><a href="{{path('admin_recette_supprimer', {'id':recette.id})}}">   Supprimer   </a></li>
+                {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}

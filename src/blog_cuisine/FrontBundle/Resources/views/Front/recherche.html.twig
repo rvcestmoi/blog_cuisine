@@ -1,0 +1,32 @@
+{% extends "blog_cuisineFrontBundle:FrontGeneral:navigation.html.twig" %}
+
+{% block title %}blog_cuisineFrontBundle:Front:homePage{% endblock %}
+
+{% block main %}
+    {{parent()}}
+
+    <div class="container">
+       
+             <div class="row">
+                  <div class="col-xs-12">
+         
+            {% if articles == null and recettes ==null  %}
+                
+                Aucun résultat pour votre recherche
+            {% else %}
+                <br>
+                <h1>Articles trouvés :</h1>
+                {% for article in articles %}
+                    <a href="{{path('article', {id:article.id})}}"><div>{{article.titre}}</div></a>
+                        {% endfor%}
+                        {% for recette in recettes %}
+                    <a href="{{path('article', {id:recette.article.id})}}"><div>{{recette.titre}}</div></a>
+                        {% endfor%}
+                    {% endif %}
+           
+        </div>
+             </div>
+    </div>
+                    <a href="#haut">retour en haut de la page</a>
+{% endblock %}
+

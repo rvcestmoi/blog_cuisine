@@ -1,0 +1,40 @@
+{% extends "blog_cuisineBackBundle:Admin:adminfooter.html.twig" %}
+
+{% block body %}
+     {{ parent() }}
+    bienvenue sur les listes de recettes
+
+    <div class="container">
+        <div class="row">
+            <div class ="themeListe">
+                <ul>
+                    {%for ingredient in listeIngredients %}
+                        <li>{{ingredient.ingredients.libelle}} :{{ingredient.quantite}}  {{ingredient.ingredients.unite}}
+                            <a href="{{path('admin_ingredient_liste_supprimer', {'id':ingredient.id, 'recette':recette.id})}}">
+                                supprimer  </a>
+                        </li>
+                        {%endfor%}
+                </ul>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class ="themeListe">
+                {{form(form)}}
+            </div>
+            </div>
+            <div class="row">
+                <div class ="themeListe">
+                    <a href="{{path('admin_recette_modifier', {'id':recette.id})}}">
+                        {{recette.titre}}</br>
+                    {{recette.recette}}
+                    </a>
+                </div>
+            </div>
+           
+        
+
+
+
+    </div>
+{% endblock %}

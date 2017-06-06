@@ -1,0 +1,25 @@
+{% extends "blog_cuisineBackBundle:Admin:adminfooter.html.twig" %}
+
+
+
+{% block body %}
+     {{ parent() }}
+    bienvenue sur les articles
+     <div class="container">
+        <div class="row">
+            <div class ="themeListe">
+                {{form(form)}}
+            </div>
+
+        </div>
+            <div class="row">
+            <div class ="themeListe">
+                <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{chemin}} " height="160px"/>
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}

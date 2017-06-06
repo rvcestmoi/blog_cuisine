@@ -1,0 +1,14 @@
+blog.cuisine_front:
+    resource: "@blog_cuisineFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog.cuisine_back:
+    resource: "@blog_cuisineBackBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"    
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
