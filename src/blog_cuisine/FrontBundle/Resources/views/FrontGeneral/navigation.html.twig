@@ -1,10 +1,12 @@
 {% extends "::base.html.twig" %} {% block header %} {{ parent() }}
-    <header>
-        <div class="container">
+
+    <div class="container">
+        <header>
+
             <div id="haut"></div>
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="{{path('home_page')}}"><img class="img-responsive" src="{{ asset('bundles/blogback/img/header.png')}} " /> </
+                    <a href="{{path('home_page')}}"> <img class="img-responsive" src="{{ asset('bundles/blogback/img/header.png')}} " /></a>
                 </div>
             </div>
             <div class="row>">
@@ -49,19 +51,26 @@
                         <input type="text" class="search form-control align-bottom" name="recherche" placeholder="Recherche..."> </form>
                 </div>
             </div>
-        </div>
-    
-</header> {% endblock %}
+        </header>
+    </div>
+
+{% endblock %}
 
 {% block footer %} {{ parent() }}
+<div class="container">
     <footer>
-        <div class="container">
-            <div class ="row">
-                <div class="col-xs-12">
-                    <div class="footer"> @2017 Hervé Rouillard. Tous droits réservés
-                        <br> Blog réalisé sous Symfony 2.8
-                    </div>
+
+        <div class ="row">
+            <div class="col-xs-12">
+                <div class="footer"> @2017 Hervé Rouillard. Tous droits réservés
+                    <br> Blog réalisé sous Symfony 2.8
                 </div>
             </div>
         </div>
-    </footer> {% endblock %}
+
+
+    </footer>
+</div>
+
+
+{% endblock %}
