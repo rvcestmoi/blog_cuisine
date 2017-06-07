@@ -84,7 +84,7 @@ class AdminIngredientController extends Controller {
                         'g' => 'g',
                         'ml' => 'ml'
             )))
-                ->add("defaut", NumberType::class, array('data' => 100, 'label'=>'Poids par défault'))
+                ->add("defaut", NumberType::class, array('label'=>'Poids par défault'))
                 ->add("calorie", NumberType::class,array('label'=>'Calories'))
                 ->add("proteine", NumberType::class, array('label'=>'Protéines'))
                 ->add("glucide", NumberType::class, array('label'=>'Glucides'))
