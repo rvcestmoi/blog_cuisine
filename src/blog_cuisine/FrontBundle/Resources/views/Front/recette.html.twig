@@ -5,68 +5,72 @@
 {% block main %}
     {{parent()}}
 
-    
 
-        <br>
-        <div class="row">
-            <div class="col-md-4">
-                <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:120px"/>
-            </div>
-            <div class="col-md-8">
-                <h2>{{recette.titre}}</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="ingredients">
-                    <strong> Ingrédients :</strong>
-                    {% for ingredient in ingredients %}
 
-                        </br>{{ingredient.quantite}}{% if ingredient.ingredients.unite != 'portion'%}{{ingredient.ingredients.unite}} de {% endif %}
-                        {{ingredient.ingredients.libelle}}
-
-                    {% endfor%}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <p class="calorie">
-                    <strong>Valeurs nutritionelles (pour 100g):</strong><br>
-                    calories: {{nutrition.calorie}}kCal<br>
-                    glucides: {{nutrition.glucide}}g<br>
-                    lipides: {{nutrition.lipide}}g<br>
-                    protéines: {{nutrition.proteine}}g<br>
-            </div>
-        </div>
-    </p>
-    <p>
-        {% autoescape false %}
-            {{recette.recette}}
-        {% endautoescape %}
-    </p>
-    <hr>
+    <br>
     <div class="row">
-        <div class ="col-md-4">
-            <div class="commentaire">
-                {% for commentaire in article.commentaires %}
-                    <strong>{{commentaire.nom}}</strong> à écrit : 
-                    <em>{{commentaire.commentaire}}</em><br>
-                    <hr>
-                {% endfor %}
+        <div class="col-md-4">
+            <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:120px"/>
+        </div>
+        <div class="col-md-8">
+            <h2>{{recette.titre}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="ingredients">
+                <strong> Ingrédients :</strong>
+                {% for ingredient in ingredients %}
 
+                    </br>{{ingredient.quantite}}{% if ingredient.ingredients.unite != 'portion'%}{{ingredient.ingredients.unite}} de {% endif %}
+                    {{ingredient.ingredients.libelle}}
+
+                {% endfor%}
             </div>
+        </div>
+        <div class="col-md-6">
+            <p class="calorie">
+                <strong>Valeurs nutritionelles (pour 100g):</strong><br>
+                calories: {{nutrition.calorie}}kCal<br>
+                glucides: {{nutrition.glucide}}g<br>
+                lipides: {{nutrition.lipide}}g<br>
+                protéines: {{nutrition.proteine}}g<br>
+        </div>
+    </div>
+</p>
+<p>
+    {% autoescape false %}
+        {{recette.recette}}
+    {% endautoescape %}
+</p>
+<hr>
+<div class="row">
+    <div class ="col-md-4">
+        <div class="commentaire">
+            {% for commentaire in article.commentaires %}
+                <strong>{{commentaire.nom}}</strong> à écrit : 
+                <em>{{commentaire.commentaire}}</em><br>
+                <hr>
+            {% endfor %}
 
-            <div class="commentaire">
-                <br>
-                Ajouter un nouveau commentaire : 
-                {{form(form)}}
-            </div>
+        </div>
 
+        <div class="commentaire">
+            <br>
+            Ajouter un nouveau commentaire : 
+            {{form(form)}}
         </div>
 
     </div>
 
-<div class="retourPage">
-<a href="#haut">retour en haut de la page</a>
 </div>
-                
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="retourPage">
+            <a href="#haut">retour en haut de la page</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
