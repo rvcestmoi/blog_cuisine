@@ -23,6 +23,8 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository {
         return $this->createQueryBuilder('a')
                         ->leftJoin('a.theme', 't')
                         ->where('t.id=' . $theme)
+                        ->andWhere('a.enLigne=:enabled')
+                        ->setParameter('enabled', true)
                         ->setMaxResults($limit)
                         ->getQuery();
     }
