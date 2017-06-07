@@ -85,10 +85,10 @@ class AdminIngredientController extends Controller {
                         'ml' => 'ml'
             )))
                 ->add("defaut", NumberType::class, array('data' => 100, 'label'=>'Poids par défault'))
-                ->add("calorie", NumberType::class)
-                ->add("proteine", NumberType::class)
-                ->add("glucide", NumberType::class)
-                ->add("lipide", NumberType::class)
+                ->add("calorie", NumberType::class,array('label'=>'Calories'))
+                ->add("proteine", NumberType::class, array('label'=>'Protéines'))
+                ->add("glucide", NumberType::class, array('label'=>'Glucides'))
+                ->add("lipide", NumberType::class, array('label'=>'Lipides'))
                 ->add("sel", NumberType::class,array('label'=>'Sodium'))
                 ->add("valider", "submit");
         return $form;

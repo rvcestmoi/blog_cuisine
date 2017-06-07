@@ -3,15 +3,19 @@
 {% block title %}test{% endblock  %}
 {% block body %}
     {{ parent() }}
-    <a href='{{path('index')}}'>
-        <div class="header">
+    <div class="row">
+        <a href='{{path('index')}}'>
+            <div class="header">
                 RETOUR A L'ACCUEIL
-                
-        </div>
-    </a>
-     <a href='{{path('home_page')}}' target="_blank">
-        <span class="header">
+
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <a href='{{path('home_page')}}' target="_blank">
+            <span class="header">
                 RETOUR AU SITE
-        </span>
-    </a>
+            </span>
+        </a>
+    </div>
 {% endblock %}

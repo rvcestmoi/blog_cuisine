@@ -11,6 +11,11 @@ body{
     font-family: arimo;
     
 }
+
+.articleHome{
+    color: rgb(153,0,151);
+    text-align: center;
+}
 .dropdown, .dropdown-menu, .navbar-brand, .navigation {
     color:  rgb(255,102,0);
     background-color: white;
@@ -44,7 +49,7 @@ body{
     background-color: white;
     display: block;
     text-align: center;
-    padding: 0 px;
+    padding: 0px;
 }
 
 .navbar-nav > li {
@@ -75,16 +80,17 @@ a{
     color:  rgb(255,102,0);
    padding: 0px;
    padding-left:  15px;
+  
 }
 
 .menu{
     padding: 0px;
     
 }
-input[type=text] {
+.search input[type=text] {
     width: 130px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 2px solid rgb(255,102,0);
     border-radius: 4px;
     font-size: 12px;
     background-color: white;
