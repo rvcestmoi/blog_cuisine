@@ -1,25 +1,25 @@
 {% extends "blog_cuisineFrontBundle:FrontGeneral:navigation.html.twig" %} {% block main %} {{parent()}}
-<div class="container">
+
     <div class="row">
         <div class="col-md-12">
-            
             <h2>Derniers Articles ajoutés :</h2>
-            </div>
-            <div class="row"> {% for article in articles %}
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="{{path('article',{id:article.id})   }}"> <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:120px" />
-                            <div class="caption">
-                                <p>{{article.titre}}</p>
-                            </div>
-                        </a>
-                    </div>
+        </div>
+        <div class="row"> {% for article in articles %}
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="{{path('article',{id:article.id})   }}"> <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:120px" />
+                        <div class="caption">
+                            <p>{{article.titre}}</p>
+                        </div>
+                    </a>
                 </div>
-                         {% endfor%}
-               
-        
-    </div>
-                <div class="retourPage">
-                    <a href="#haut">retour en haut de la page</a>
-                </div>            
-</div>{% endblock %}
+            </div>
+            {% endfor%}
+            </div>
+
+        </div>
+        <div class="retourPage">
+            <a href="#haut">retour en haut de la page</a>
+        </div> 
+
+        {% endblock %}

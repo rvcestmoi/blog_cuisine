@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: blog_cuisine
+    database_user: root
+    database_password: choudoudou
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 3ef211e5515e200efb27b5f145e7c2cf4886a26a

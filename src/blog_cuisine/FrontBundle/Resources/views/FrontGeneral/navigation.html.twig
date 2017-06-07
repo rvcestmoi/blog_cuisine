@@ -1,76 +1,71 @@
 {% extends "::base.html.twig" %} {% block header %} {{ parent() }}
 
-    <div class="container">
-        <header>
 
-            <div id="haut"></div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <a href="{{path('home_page')}}"> <img class="img-responsive" src="{{ asset('bundles/blogback/img/header.png')}} " /></a>
-                </div>
-            </div>
-            <div class="row>">
-                <div class="col-md-10 ">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header"> <a class="navbar-brand" href="{{path('home_page')}}">Accueil</a> </div>
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes sucrées
-                                    <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{path('theme', {id:8})}}">Desserts rapides</a></li>
-                                    <li><a href="{{path('theme', {id:9})}}">Biscuits & mignardises</a></li>
-                                    <li><a href="{{path('theme', {id:10})}}">Tartes et gateaux</a></li>
-                                    <li><a href="{{path('theme', {id:11})}}">Cakes</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes salées
-                                    <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{path('theme', {id:12})}}">Apéritifs/Entrées</a></li>
-                                    <li><a href="{{path('theme', {id:13})}}">Tartes et quiches</a></li>
-                                    <li><a href="{{path('theme', {id:14})}}">Gratins et lasagnes</a></li>
-                                    <li><a href="{{path('theme', {id:15})}}">Autres plats végétariens</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes du monde
-                                    <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{path('theme', {id:7})}}">Réunionnaises</a></li>
-                                    <li><a href="{{path('theme', {id:16})}}">Irlandaises</a></li>
-                                    <li><a href="{{path('theme', {id:17})}}">Asiatiques</a></li>
-                                    <li><a href="{{path('theme', {id:18})}}">Indiennes</a></li>
-                                </ul>
-                            </li>
-                            <li class="navigation"><a href="#">Test Produit</a></li>
-                            <li class="navigation"><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class=" search col-md-2 ">
-                    <form method="get" name="formSearch" action="{{path('recherche' )}}">
-                        <input type="text" class="search form-control align-bottom" name="recherche" placeholder="Recherche..."> </form>
-                </div>
-            </div>
-        </header>
-    </div>
+    <header>
 
+        <div id="haut"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{path('home_page')}}"> <img class="img-responsive" src="{{ asset('bundles/blogback/img/header.png')}} " /></a>
+            </div>
+        </div>
+        <div class="row>">
+            <div class="menu col-md-10 ">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header"> <a class="navbar-brand" href="{{path('home_page')}}">Accueil</a> </div>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes sucrées
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{path('theme', {id:8})}}">Desserts rapides</a></li>
+                                <li><a href="{{path('theme', {id:9})}}">Biscuits & mignardises</a></li>
+                                <li><a href="{{path('theme', {id:10})}}">Tartes et gateaux</a></li>
+                                <li><a href="{{path('theme', {id:11})}}">Cakes</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes salées
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{path('theme', {id:12})}}">Apéritifs/Entrées</a></li>
+                                <li><a href="{{path('theme', {id:13})}}">Tartes et quiches</a></li>
+                                <li><a href="{{path('theme', {id:14})}}">Gratins et lasagnes</a></li>
+                                <li><a href="{{path('theme', {id:15})}}">Autres plats végétariens</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recettes du monde
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{path('theme', {id:7})}}">Réunionnaises</a></li>
+                                <li><a href="{{path('theme', {id:16})}}">Irlandaises</a></li>
+                                <li><a href="{{path('theme', {id:17})}}">Asiatiques</a></li>
+                                <li><a href="{{path('theme', {id:18})}}">Indiennes</a></li>
+                            </ul>
+                        </li>
+                        <li class="navigation"><a href="#">Test Produit</a></li>
+                        <li class="navigation"><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class=" search col-md-2 ">
+                <form method="get" name="formSearch" action="{{path('recherche' )}}">
+                    <input type="text" class="search form-control align-bottom" name="recherche" placeholder="Recherche..."> </form>
+            </div>
+        </div>
+    </header>
 {% endblock %}
 
 {% block footer %} {{ parent() }}
-<div class="container">
-    <footer>
 
+    <footer>
         <div class ="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <div class="footer"> @2017 Hervé Rouillard. Tous droits réservés
                     <br> Blog réalisé sous Symfony 2.8
                 </div>
             </div>
         </div>
-
-
     </footer>
-</div>
+
 
 
 {% endblock %}

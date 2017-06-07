@@ -1,0 +1,105 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 avr. 2017, 09:54:59
+    Author     : RV
+*/
+body{
+    font-family: arimo;
+    
+}
+.dropdown, .dropdown-menu, .navbar-brand, .navigation {
+    color:  rgb(255,102,0);
+    background-color: white;
+    margin: 0px;
+    
+}
+.dropdown, .dropdown-menu{
+    padding:0px;
+}
+
+
+.dropdown-menu li a{
+    color:  rgb(255,102,0);
+    background-color: white;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+
+    color:  rgb(255,102,0);
+}
+.img-responsive{
+    margin-bottom: 5px;
+}
+.thumbnail{
+    margin: 15px;
+}
+
+.navbar-nav, navbar-brand {
+    color:  rgb(255,102,0);
+    float:none;
+    background-color: white;
+    display: block;
+    text-align: center;
+    padding: 0 px;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    color:  rgb(255,102,0);
+    float:none;
+}
+.navig {
+    padding: 0 px;
+}
+
+.recherche{
+    margin: 10px
+}
+
+a{
+    text-decoration: none;
+}
+
+.footer{
+    color: white;
+    background-color: orange;
+}
+
+
+.search{
+    background-color: white;
+    color:  rgb(255,102,0);
+   padding: 0px;
+   padding-left:  15px;
+}
+
+.menu{
+    padding: 0px;
+    
+}
+input[type=text] {
+    //width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    //background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    margin: 8px 2px 8px 1px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+.retourPage{
+    
+   text-align: right;
+}

@@ -1,0 +1,67 @@
+.adminBouton{
+    height: 100px;
+    line-height: 100px;
+    background-color: #fff3db;
+    border: 1px solid black;
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    font-weight:  bold;
+    color: #cc8700;
+   
+}
+.adminBouton:hover{
+    height: 100px;
+    line-height: 100px;
+    background-color: #fff3db;
+    border: 1px solid black;
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    font-weight:  bold;
+    color: #cc8700;
+    box-shadow: 5px 5px 2px 2px #cc8700 ;
+   }
+   
+   .themeListe{
+       border: 1px black solid;
+       text-align: center;
+       
+   } 
+   
+   .nouveauTheme{
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff3db;
+    border: 1px solid black;
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    font-weight:  bold;
+    color: #cc8700;
+    
+   }
+   
+   .nouveauTheme:hover{
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff3db;
+    border: 1px solid black;
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    font-weight:  bold;
+    color: #cc8700;
+    box-shadow: 5px 5px 2px 2px #cc8700 ;
+       
+   }
+   .header{
+       border: 1px solid black;
+       height: 100 px;
+       text-align: center;
+       line-height: 100px;
+       background-color: orange;
+           
+       
+   }
+   
