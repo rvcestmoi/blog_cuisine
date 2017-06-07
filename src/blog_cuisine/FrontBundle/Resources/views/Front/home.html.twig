@@ -1,9 +1,6 @@
 {% extends "blog_cuisineFrontBundle:FrontGeneral:navigation.html.twig" %} {% block main %} {{parent()}}
 
     <div class="row">
-        <div class="col-md-12">
-            <h2>Derniers Articles ajoutés :</h2>
-        </div>
         <div class="row"> {% for article in articles %}
             <div class="col-md-4">
                 <div class="thumbnail">
