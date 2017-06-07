@@ -41,7 +41,12 @@ body{
 }
 .thumbnail{
     margin: 15px;
+    height: 250px;
 }
+.thumbnail > img, .thumbnail a > img {
+    height: 200px;
+}
+
 
 .navbar-nav, navbar-brand {
     color:  rgb(255,102,0);
