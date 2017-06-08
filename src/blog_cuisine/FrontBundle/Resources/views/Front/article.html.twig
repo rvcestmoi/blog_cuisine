@@ -1,16 +1,13 @@
 {% extends "blog_cuisineFrontBundle:FrontGeneral:navigation.html.twig" %}
 
 {% block title %}Recette{% endblock %}
-
 {% block main %}
     {{parent()}}
-
-
     <br><br><br>
     {% autoescape false %}
         <div class="row">
             <div class="col-md-4">
-                <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:120px"/>
+                <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:200px"/>
             </div>
             <div class="col-md-8">
                 <h2>{{article.titre}}</h2>
