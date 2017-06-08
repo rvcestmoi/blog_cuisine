@@ -78,8 +78,8 @@ class AdminIngredientController extends Controller {
 
     public function ingredientForm($ingredient) {
         $form = $this->createFormBuilder($ingredient)
-                ->add("libelle", "text")
-                ->add("unite", "choice", array(
+                ->add("libelle", "text", array('label'=>'Libellé'))
+                ->add("unite", "choice", array('label'=>'Unité',
                     'choices' => array('portion' => 'portion',
                         'g' => 'g',
                         'ml' => 'ml'

@@ -114,8 +114,8 @@ class AdminRecetteController extends Controller {
 
     public function recetteIngredientsForm($liste) {
         $form = $this->createFormBuilder($liste)
-                ->add("quantite", NumberType::class)
-                ->add('ingredients', 'entity', array(
+                ->add("quantite", NumberType::class,array('label'=>'Quantité'))
+                ->add('ingredients', 'entity', array('label'=>'Ingrédients',
                     'class' => 'blog_cuisineBackBundle:Ingredient',
                     'property' => 'libelle'))
                 ->add("ajouter", "submit");
