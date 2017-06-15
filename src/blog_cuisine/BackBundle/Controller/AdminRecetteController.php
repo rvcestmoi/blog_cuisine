@@ -19,15 +19,11 @@ class AdminRecetteController extends Controller {
         ));
     }
 
-
     public function nouveauRecetteAction() {
-        // ceci va en faite realiser une nouvelle liste 
+        // ceci va en faite realiser une nouvelle recette
         $em = $this->getDoctrine()->getManager();
         $recette = new Recette;
-
-
         $form = $this->recetteForm($recette)->getForm();
-
         $form->handleRequest($this->get('request'));
         if ($form->isValid()) {
             $em->persist($recette);
@@ -41,23 +37,22 @@ class AdminRecetteController extends Controller {
     }
 
     public function ajouterRecetteAction($id) {
-        // no ajoute a une liste sans recette
+        
+        //LE but de cette fonction est de pouvoir ajouter des ingrédients à la recette        
         $em = $this->getDoctrine()->getManager();
+        //on doit ici rechercher la recette pour le one to one sinon la donnée est NULL
         $recette = $em->getRepository('blog_cuisineBackBundle:Recette')->find($id);
         $liste = new RecetteIngredients;
         $liste->setRecette($recette);
-
-
         $listeIngredients = $em->getRepository('blog_cuisineBackBundle:RecetteIngredients')->findBy(
                 array('recette' => $id)
         );
-
-
+        
         $form = $this->recetteIngredientsForm($liste)->getForm();
-
+        
         $form->handleRequest($this->get('request'));
+        
         if ($form->isValid()) {
-
             $em->persist($liste);
             $em->flush();
             return $this->redirectToRoute('admin_recette_ajouter', array('id' => $recette->getId()));
@@ -74,8 +69,6 @@ class AdminRecetteController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository('blog_cuisineBackBundle:RecetteIngredients');
         $ingredient = $rep->find($id);
-
-
         $em->remove($ingredient);
         $em->flush();
         return $this->redirectToRoute('admin_recette_ajouter', array('id' => $recette));
@@ -85,21 +78,16 @@ class AdminRecetteController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository('blog_cuisineBackBundle:Recette');
         $recette = $rep->find($id);
-
-
         $em->remove($recette);
         $em->flush();
         return $this->redirectToRoute('admin_recette');
-        
     }
+
     public function modifierRecetteAction($id) {
-        // ceci va en faite realiser une nouvelle liste 
+
         $em = $this->getDoctrine()->getManager();
         $recette = $em->getRepository('blog_cuisineBackBundle:Recette')->find($id);
-
-
         $form = $this->recetteForm($recette)->getForm();
-
         $form->handleRequest($this->get('request'));
         if ($form->isValid()) {
             $em->persist($recette);
@@ -114,12 +102,12 @@ class AdminRecetteController extends Controller {
 
     public function recetteIngredientsForm($liste) {
         $form = $this->createFormBuilder($liste)
-                ->add("quantite", NumberType::class,array('label'=>'Quantité'))
-                ->add('ingredients', 'entity', array('label'=>'Ingrédients',
+                ->add("quantite", NumberType::class, array('label' => 'Quantité'))
+                ->add('ingredients', 'entity', array('label' => 'Ingrédients',
                     'class' => 'blog_cuisineBackBundle:Ingredient',
-                    'query_builder' => function(\Doctrine\ORM\EntityRepository $repository) { 
-            return $repository->createQueryBuilder('u')->orderBy('u.libelle', 'ASC');
-        },
+                    'query_builder' => function(\Doctrine\ORM\EntityRepository $repository) {
+                        return $repository->createQueryBuilder('u')->orderBy('u.libelle', 'ASC');
+                    },
                     'property' => 'libelle'))
                 ->add("ajouter", "submit");
         return $form;
