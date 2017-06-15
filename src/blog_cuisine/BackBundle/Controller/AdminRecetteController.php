@@ -117,6 +117,9 @@ class AdminRecetteController extends Controller {
                 ->add("quantite", NumberType::class,array('label'=>'Quantité'))
                 ->add('ingredients', 'entity', array('label'=>'Ingrédients',
                     'class' => 'blog_cuisineBackBundle:Ingredient',
+                    'query_builder' => function(\Doctrine\ORM\EntityRepository $repository) { 
+            return $repository->createQueryBuilder('u')->orderBy('u.libelle', 'ASC');
+        },
                     'property' => 'libelle'))
                 ->add("ajouter", "submit");
         return $form;
