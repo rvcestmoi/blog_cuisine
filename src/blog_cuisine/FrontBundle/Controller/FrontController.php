@@ -57,8 +57,9 @@ class FrontController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository("blog_cuisineBackBundle:Article")->find($id);
         $ingredients = $em->getRepository("blog_cuisineBackBundle:RecetteIngredients")->rechercherIngredients($article->getRecette())->getResult();
+        //on recupere l'article associé à une recette
         $recette = $article->getREcette();
-
+        //calcul des valeurs nutritionnelles
         $calorie = $this->calculerCalorie($ingredients);
         $proteine = $this->calculerProteine($ingredients);
         $glucide = $this->calculerGlucide($ingredients);
@@ -101,6 +102,7 @@ class FrontController extends Controller {
     }
 
     public function calculerCalorie($ingredients) {
+        //tous les calculs de calories etc. respecte juste un produit en croix. bien que compliqué, il n'y a rien de compliqué
         $calorieIngredients = 0.0;
         $masseTotal = 0.0;
         foreach ($ingredients as $ingredient) {
@@ -110,7 +112,6 @@ class FrontController extends Controller {
             } else {
                 $calorieIngredients += ($ingredient->getIngredients()->getCalorie()) * ($ingredient->getQuantite()) * $ingredient->getIngredients()->getDefaut() / 100;
                 $masseTotal += ($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
-                //var_dump($masseTotal);
             }
         }
         if ($masseTotal == 0) {

@@ -10,8 +10,10 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 class AdminArticleController extends Controller {
 
     public function listerAction() {
+        //Recueil de la doctine et des fonctions associées
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository('blog_cuisineBackBundle:Article');
+        //recherche des article par date d'ajout
         $articles = $rep->findBy(array(), array('dateAjout' => 'DESC'));
         return $this->render('blog_cuisineBackBundle:Admin:article_list.html.twig', array(
                     'articles' => $articles
@@ -19,12 +21,11 @@ class AdminArticleController extends Controller {
     }
 
     public function supprimerArticleAction($id) {
+
         if (is_numeric($id)) {
             $em = $this->getDoctrine()->getManager();
             $rep = $em->getRepository('blog_cuisineBackBundle:Article');
             $article = $rep->find($id);
-
-
             $em->remove($article);
             $em->flush();
             return $this->redirectToRoute('admin_article');
@@ -35,19 +36,20 @@ class AdminArticleController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $article = new Article;
-        
+        //Recherche du formulaire et vérifications de la validité
         $form = $this->articleForm($article)->getForm();
         $form->handleRequest($this->get('request'));
 
         if ($form->isValid()) {
+            //recuperation du $_post et ajout de la date en currenttime
             $recette = $form->get('recette')->getData();
             $article->setDateAjout(new DateTime);
             $article->setChemin("defaut.png");
             $em->persist($article);
-
             $em->flush();
             if (!empty($recette)) {
-                $recetteArticle = $em->getRepository('blog_cuisineBackBundle:Recette')->find($recette);               
+                //important pour eviter de faire crasher la base : on set l'article  sur la recette pour la relation oneToone
+                $recetteArticle = $em->getRepository('blog_cuisineBackBundle:Recette')->find($recette);
                 $recetteArticle->setArticle($article);
                 $em->persist($recetteArticle);
                 $em->flush();
@@ -63,6 +65,7 @@ class AdminArticleController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository("blog_cuisineBackBundle:Article")->find($id);
+        //recuperation du formulaire
         $form = $this->articleImageForm()->getForm();
         $form->handleRequest($this->get('request'));
         if ($form->isSubmitted()) {
@@ -71,15 +74,19 @@ class AdminArticleController extends Controller {
         }
 
         if ($form->isValid()) {
-
+        //on recupere l'image uploadée
             $image = $form->get('image')->getData();
             if ($image == NULL) {
                 $article->setChemin("defaut.png");
             } else {
+                //on evite les petits malin qui contourne l'exention
                 $ext = $image->guessExtension();
+                //on ajoute l'image uploadée
                 $directory = __DIR__ . '/../../../../web/bundles/blogback/imgRecette/';
+                //on crypte le nom de l'image avec l'id de l'article c'est simple a retrouver
                 $nomImage = sha1($article->getId()) . "." . $ext;
                 $article->setChemin($nomImage);
+                //on transfere l'image vers le dossier
                 $fichier->move($directory, $nomImage);
                 $article->setChemin($nomImage);
             }
