@@ -11,7 +11,7 @@ class FrontController extends Controller {
     public function homePageAction() {
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository("blog_cuisineBackBundle:Article");
-        $articles = $rep->rechercherDernier(10)->getResult();
+        $articles = $rep->rechercherDernier(9)->getResult();
         //var_dump($articles);
         return $this->render('blog_cuisineFrontBundle:Front:home.html.twig', array(
                     'articles' => $articles
@@ -106,10 +106,10 @@ class FrontController extends Controller {
         foreach ($ingredients as $ingredient) {
             if ($ingredient->getIngredients()->getUnite() !== 'portion') {
                 $calorieIngredients += ($ingredient->getIngredients()->getCalorie()) / 100 * ($ingredient->getQuantite());
-                $masseTotal+= $ingredient->getQuantite();
+                $masseTotal += $ingredient->getQuantite();
             } else {
                 $calorieIngredients += ($ingredient->getIngredients()->getCalorie()) * ($ingredient->getQuantite()) * $ingredient->getIngredients()->getDefaut() / 100;
-                $masseTotal+=($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
+                $masseTotal += ($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
                 //var_dump($masseTotal);
             }
         }
@@ -128,10 +128,10 @@ class FrontController extends Controller {
         foreach ($ingredients as $ingredient) {
             if ($ingredient->getIngredients()->getUnite() !== 'portion') {
                 $proteineIngredients += ($ingredient->getIngredients()->getProteine()) / 100 * ($ingredient->getQuantite());
-                $masseTotal+= $ingredient->getQuantite();
+                $masseTotal += $ingredient->getQuantite();
             } else {
                 $proteineIngredients += ($ingredient->getIngredients()->getProteine()) * ($ingredient->getQuantite()) * $ingredient->getIngredients()->getDefaut() / 100;
-                $masseTotal+=($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
+                $masseTotal += ($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
             }
         }
         if ($masseTotal == 0) {
@@ -149,10 +149,10 @@ class FrontController extends Controller {
         foreach ($ingredients as $ingredient) {
             if ($ingredient->getIngredients()->getUnite() !== 'portion') {
                 $glucideIngredients += ($ingredient->getIngredients()->getGlucide()) / 100 * ($ingredient->getQuantite());
-                $masseTotal+= $ingredient->getQuantite();
+                $masseTotal += $ingredient->getQuantite();
             } else {
                 $glucideIngredients += ($ingredient->getIngredients()->getGlucide()) * ($ingredient->getQuantite()) * $ingredient->getIngredients()->getDefaut() / 100;
-                $masseTotal+=($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
+                $masseTotal += ($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
             }
         }
         if ($masseTotal == 0) {
@@ -170,10 +170,10 @@ class FrontController extends Controller {
         foreach ($ingredients as $ingredient) {
             if ($ingredient->getIngredients()->getUnite() !== 'portion') {
                 $lipideIngredients += ($ingredient->getIngredients()->getLipide()) / 100 * ($ingredient->getQuantite());
-                $masseTotal+= $ingredient->getQuantite();
+                $masseTotal += $ingredient->getQuantite();
             } else {
                 $lipideIngredients += ($ingredient->getIngredients()->getLipide()) * ($ingredient->getQuantite()) * $ingredient->getIngredients()->getDefaut() / 100;
-                $masseTotal+=($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
+                $masseTotal += ($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
             }
         }
         if ($masseTotal == 0) {
@@ -190,10 +190,10 @@ class FrontController extends Controller {
         foreach ($ingredients as $ingredient) {
             if ($ingredient->getIngredients()->getUnite() !== 'portion') {
                 $selIngredients += ($ingredient->getIngredients()->getSel()) / 100 * ($ingredient->getQuantite());
-                $masseTotal+= $ingredient->getQuantite();
+                $masseTotal += $ingredient->getQuantite();
             } else {
                 $selIngredients += ($ingredient->getIngredients()->getSel()) * ($ingredient->getQuantite()) * $ingredient->getIngredients()->getDefaut() / 100;
-                $masseTotal+=($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
+                $masseTotal += ($ingredient->getQuantite()) * ($ingredient->getIngredients()->getDefaut());
             }
         }
         if ($masseTotal == 0) {
@@ -208,15 +208,11 @@ class FrontController extends Controller {
         return $form = $this->createFormBuilder($commentaire)
                 ->add('nom', 'text', array('label' => 'Votre Nom: '))
                 ->add('commentaire', 'textarea', array('label' => 'Votre Commentaire: '))
-                ->add("valdier", "submit");
+                ->add("valider", "submit");
     }
-    
-    public function contactAction () {
-        
-      
+
+    public function contactAction() {
         
     }
-    
-    
 
 }

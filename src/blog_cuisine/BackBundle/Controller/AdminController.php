@@ -71,7 +71,7 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $theme = new Theme;
         $form = $this->createFormBuilder($theme)
-             ->add("libelle","text")
+             ->add("libelle","text", array('label'=>'Libellé'))
              ->add("valider","submit")
              ->getForm();   
         

@@ -4,19 +4,23 @@
 {% block main %}
     {{parent()}}
     <br><br><br>
-    {% autoescape false %}
+    
         <div class="row">
             <div class="col-md-4">
-                <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" style="height:200px"/>
+                <img class="imgAppli" src="{{ asset('bundles/blogback/imgRecette/')}}{{article.chemin}} " alt="{{article.titre}}" />
             </div>
             <div class="col-md-8">
                 <h2>{{article.titre}}</h2>
             </div>
         </div>
         <div class="row">
-            {{article.description}}
+            <div class="col-md-12">
+                {% autoescape false %}
+                    {{article.description}}
+                {% endautoescape %}
+            </div>
         </div>
-    {% endautoescape %}
+    
     <div class="row">
         <div class="col-xs-12">
             <div class="retourPage">
